@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>SM ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Soil Moisture</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="day_of_month" placeholder="day_of_month" required="required" />
+        <input type="text" name="month_of_year" placeholder="month_of_year" required="required" />
+		<input type="text" name="T_max" placeholder="T_max" required="required" />
+		<input type="text" name="T_min" placeholder="T_min" required="required" />
+		<input type="text" name="Rainfall_mm" placeholder="Rainfall_mm" required="required" />
+		<input type="text" name="Rainfall_NRSC_mm" placeholder="Rainfall_NRSC_mm" required="required" />
+		<input type="text" name="Evp_mm" placeholder="Evp_mm" required="required" />
+		<input type="text" name="Soil_Moisture_prev" placeholder="Soil_Moisture_prev" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
